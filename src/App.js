@@ -21,47 +21,37 @@ class StarWarsService extends Component {
   render() {
     const starwarsData = this.state.starwarsData;
     if (!starwarsData) return (<div>Loading data...</div>)
-    const starwars = starwarsData;
+    const starwars = starwarsData.results;
     
     return (
-      PLANETS.map((place, index) => (
+      starwars.map((place, index) => (
       <div >
         
         <h1>
+          <hr></hr>
           { starwars.planets }  {starwarsData.planets}
           
         </h1>
         {/* {JSON.stringify(starwarsData)}
         {console.log(JSON.stringify(starwarsData.results[0].name))} */}
         
-        <p>Name:{starwarsData.results[index].name}</p>
-        <p>Diameter:{starwarsData.results[index].diameter}</p>
-        <p>Rotation_period:{starwarsData.results[index].rotation_period}</p>
-        <p>Orbital_period:{starwarsData.results[index].orbital_period}</p>
-        <p>Gravity:{starwarsData.results[index].gravity}</p>
-        <p>Population:{starwarsData.results[index].population}</p>
-        <p>Climate:{starwarsData.results[index].climate}</p>
-        <p>Terrain:{starwarsData.results[index].terrain}</p>
-        <p>Surface_water:{starwarsData.results[index].surface_water}</p>  
+        <p>Name:{place.name}</p>
+        <p>Diameter:{place.diameter}</p>
+        <p>Rotation_period:{place.rotation_period}</p>
+        <p>Orbital_period:{place.orbital_period}</p>
+        <p>Gravity:{place.gravity}</p>
+        <p>Population:{place.population}</p>
+        <p>Climate:{place.climate}</p>
+        <p>Terrain:{place.terrain}</p>
+        <p>Surface_water:{place.surface_water}</p>  
        
-        {place.name}
+        
       </div>
       ))
     );
   }
 }
-const PLANETS = [
-  { name: "1", zip: "1" },
-  { name: "2", zip: "2" },
-  { name: "3", zip: "3" },
-  { name: "4", zip: "4" },
-  { name: "5", zip: "5" },
-  { name: "6", zip: "6" },
-  { name: "7", zip: "7" },
-  { name: "8", zip: "8" },
-  { name: "9", zip: "9" },
-  { name: "10", zip: "10" },
- ];
+
  const PLACES = [
   { name: "1", zip: "1" },
   { name: "2", zip: "2" },
